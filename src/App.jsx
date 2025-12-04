@@ -46,7 +46,7 @@ export default function App() {
         </Form.Text>
       </Form.Group>
 
-      <Button variant="primary" onClick={fetchAllData} disabled={loading}>
+      <Button variant="primary" onClick={fetchData} disabled={loading}>
         {loading ? "読み込み中..." : "ユーザーを取得"}
       </Button>
 
