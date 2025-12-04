@@ -17,12 +17,21 @@ export default function App() {
     setLoading(false);
   };
 
+  // 全員分のデータを取得する関数
+  // const fetchAllData = async () => {
+  //   // 全員分のデータを取得するAPI
+  //   // https://jsonplaceholder.typicode.com/users
+  //   setLoading(true);
+  //   const json = await res.json();
+  //   setData([json]);
+  //   setLoading(false);
+  // };
+
   return (
     <div className="container mt-4">
       <h1>チーム管理</h1>
 
       <Form.Group className="mb-3" style={{ maxWidth: "300px" }}>
-        <Form.Label>取得するユーザーID（1〜10）</Form.Label>
         <Form.Control
           type="number"
           min="1"
@@ -42,7 +51,7 @@ export default function App() {
 
       {data && Array.isArray(data) && (
         <div className="card mt-4 p-3">
-          <h2>ユーザー一覧</h2>
+          <h2>ユーザ一覧</h2>
 
           <table className="table table-bordered mt-3">
             <thead>
