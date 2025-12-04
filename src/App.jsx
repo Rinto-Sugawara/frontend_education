@@ -8,7 +8,7 @@ export default function App() {
   const [id, setId] = useState("");
 
   const fetchData = async () => {
-    if (!id) return alert("IDを入力してください（1〜10）");
+    // if (!id) return alert("IDを入力してください（1〜10）");
 
     setLoading(true);
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
@@ -17,13 +17,14 @@ export default function App() {
     setLoading(false);
   };
 
-  // 全員分のデータを取得する関数
+  // 全員分のデータを取得する関数;
   // const fetchAllData = async () => {
   //   // 全員分のデータを取得するAPI
   //   // https://jsonplaceholder.typicode.com/users
   //   setLoading(true);
+  //   const res = await fetch("");
   //   const json = await res.json();
-  //   setData([json]);
+  //   setData(json);
   //   setLoading(false);
   // };
 
@@ -45,7 +46,7 @@ export default function App() {
         </Form.Text>
       </Form.Group>
 
-      <Button variant="primary" onClick={fetchData} disabled={loading}>
+      <Button variant="primary" onClick={fetchAllData} disabled={loading}>
         {loading ? "読み込み中..." : "ユーザーを取得"}
       </Button>
 
