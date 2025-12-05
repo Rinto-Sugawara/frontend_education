@@ -2,7 +2,6 @@
 import React from "react";
 
 export default function CompanyInfo() {
-  // ダミーの会社データ
   const company = {
     name: "サンプルテクノロジーズ株式会社",
     location: "東京都港区赤坂 1-2-3",
@@ -25,6 +24,14 @@ export default function CompanyInfo() {
             <td>{company.location}</td>
           </tr>
           {/* 課題1 従業員数と設立年を表示してみよう。*/}
+          <tr>
+            <th>従業員数</th>
+            <td>{company.employees}</td>
+          </tr>
+          <tr>
+            <th>設立年</th>
+            <td>{company.established}</td>
+          </tr>
         </tbody>
       </table>
     </div>
