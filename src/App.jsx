@@ -29,15 +29,11 @@ export default function App() {
   };
 
   // 課題3 チームメンバー全員の情報を取得する関数を作成してみよう
-  const fetchAllData = async () => {
-    // 全員分のデータを取得するAPI
-    // https://jsonplaceholder.typicode.com/users
-    setLoading(true);
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
-    const json = await res.json();
-    setData(json);
-    setLoading(false);
-  };
+  // const fetchAllData = async () => {
+  //   // 全員分のデータを取得するAPI
+  //   // https://jsonplaceholder.typicode.com/users
+  //   setData(json);
+  // };
 
   return (
     <div className="container mt-4">
@@ -68,20 +64,12 @@ export default function App() {
 
       {/* 課題2 チームメンバー全員の情報を取得するボタンを表示してみよう*/}
       {/* 課題3 ボタンを押したらチームメンバー全員の情報が表示されるようにしよう*/}
-      <Button
-        variant="success"
-        onClick={fetchAllData}
-        disabled={loading}
-        className="me-3"
-      >
-        {loading ? "読み込み中..." : "全ユーザーを取得"}
-      </Button>
 
       {data && Array.isArray(data) && (
         <div className="card mt-4 p-3">
           <h2>ユーザ一覧</h2>
 
-          {/* 課題4 表に詳細ボタンを追加して、メンバーの詳細画面を別画面に表示させてみよう*/}
+          {/* 課題4 表に詳細ボタンを追加して、メンバーの詳細画面を別画面(モーダル)に表示させてみよう*/}
           <table className="table table-bordered mt-3">
             <thead>
               <tr>
@@ -89,7 +77,6 @@ export default function App() {
                 <th>名前</th>
                 <th>Email</th>
                 <th>住所</th>
-                <th>詳細</th>
               </tr>
             </thead>
             <tbody>
@@ -101,24 +88,13 @@ export default function App() {
                   <td>
                     {user.address.street}, {user.address.city}
                   </td>
-                  <td>
-                    <Button
-                      variant="info"
-                      size="sm"
-                      onClick={() => handleShow(user)}
-                    >
-                      詳細
-                    </Button>
-                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       )}
-      <UserDetailModal show={show} onClose={handleClose} user={selectedUser} />
       {/* 課題1 会社情報を表示してみよう */}
-      <CompanyInfo />
     </div>
   );
 }
