@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import CompanyInfo from "./CompanyInfo";
 
 export default function App() {
   const [data, setData] = useState(null);
@@ -8,7 +9,7 @@ export default function App() {
   const [id, setId] = useState("");
 
   const fetchData = async () => {
-    // if (!id) return alert("IDを入力してください（1〜10）");
+    if (!id) return alert("IDを入力してください（1〜10）");
 
     setLoading(true);
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
@@ -17,15 +18,11 @@ export default function App() {
     setLoading(false);
   };
 
-  // 全員分のデータを取得する関数;
+  // 課題3 チームメンバー全員の情報を取得する関数を作成してみよう
   // const fetchAllData = async () => {
   //   // 全員分のデータを取得するAPI
   //   // https://jsonplaceholder.typicode.com/users
-  //   setLoading(true);
-  //   const res = await fetch("");
-  //   const json = await res.json();
   //   setData(json);
-  //   setLoading(false);
   // };
 
   return (
@@ -46,9 +43,17 @@ export default function App() {
         </Form.Text>
       </Form.Group>
 
-      <Button variant="primary" onClick={fetchData} disabled={loading}>
+      <Button
+        variant="primary"
+        onClick={fetchData}
+        disabled={loading}
+        className="me-3"
+      >
         {loading ? "読み込み中..." : "ユーザーを取得"}
       </Button>
+
+      {/* 課題2 チームメンバー全員の情報を取得するボタンを表示してみよう*/}
+      {/* 課題3 ボタンを押したらチームメンバー全員の情報が表示されるようにしよう*/}
 
       {data && Array.isArray(data) && (
         <div className="card mt-4 p-3">
@@ -78,6 +83,7 @@ export default function App() {
           </table>
         </div>
       )}
+      {/* 課題1 会社情報を表示してみよう */}
     </div>
   );
 }
