@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import CompanyInfo from "./CompanyInfo";
-import UserDetailModal from "./UserDetailModal"; // ← 追加
+import UserDetailModal from "./UserDetailModal";
 
 export default function App() {
   const [data, setData] = useState(null);
