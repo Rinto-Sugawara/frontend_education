@@ -89,6 +89,7 @@ export default function App() {
                 <th>名前</th>
                 <th>Email</th>
                 <th>住所</th>
+                <th>詳細</th>
               </tr>
             </thead>
             <tbody>
